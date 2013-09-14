@@ -16,5 +16,6 @@ app.use(express.session({
 }));
 
 app.use(require('root'));
+app.use('/pool', require('pool'));
 
 app.listen(app.get('port'));
