@@ -6,6 +6,9 @@
     "type": "git",
     "url": "https://github.com/gregwym/fiPool.git"
   },
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "jade": "0.35.x",
     "mongoose": "3.6.x",
