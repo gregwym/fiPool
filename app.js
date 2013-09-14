@@ -15,8 +15,6 @@ app.use(express.session({
   secret: 'your secret here'
 }));
 
-app.get('/', function(req, res) {
-  res.send('Hello World!');
-});
+app.use(require('root'));
 
 app.listen(app.get('port'));

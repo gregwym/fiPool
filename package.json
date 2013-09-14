@@ -7,7 +7,7 @@
     "url": "https://github.com/gregwym/fiPool.git"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "NODE_PATH=server node app.js"
   },
   "dependencies": {
     "jade": "0.35.x",
@@ -16,6 +16,6 @@
   },
   "license": "MIT",
   "engines": {
-    "node": "0.10.x"
+    "node": ">= 0.10"
   }
 }
