@@ -1,4 +1,9 @@
 extends ../views/layout
 
 block content
-  div Hello World!
+  .pool
+    .pool-id Pool ##{id}
+    .question= question
+    ul.choices
+      for choice in choices
+        li.choice= choice
