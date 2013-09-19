@@ -3,9 +3,9 @@ extends ../views/layout
 block content
   .pool
     .pool-id
-      a(href='/pool/#{id}') Pool ##{id}
+      a(href='/#{prefix}/#{id}') Pool ##{id}
     .question= question
     ul.choices
       for choice, i in choices
         li.choice
-          a(href='/pool/#{id}/choose/#{i}')= choice
+          a(href='/#{prefix}/#{id}/choose/#{i}')= choice

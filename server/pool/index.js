@@ -1,19 +1,15 @@
 var express = require('express');
-var app = module.exports = express();
+var app = module.exports = exports = express();
+var Pool = exports.Pool = require('./model');
 
 app.set('views', __dirname);
+app.locals.prefix = 'pool';
 
 app.get('/:id', function(req, res) {
-  // TODO: fetch pool dynamically
-  var pool = {
-    id: req.params.id,
-    question: 'Sample Pool Question',
-    choices: [
-      'Choice 1',
-      'Choice 2'
-    ]
-  };
-  res.render('pool', pool);
+  Pool.findById(req.params.id, function(err, pool) {
+    if (err) { return res.json(err); }
+    res.render('pool', pool);
+  });
 });
 
 app.get('/:id/choose/:choice', function(req, res) {
