@@ -1,0 +1,7 @@
+extends ../views/layout
+
+block content
+  for pool in pools
+    .pool-item
+      a(href="/#{prefix}/#{pool.id}")= pool.id
+      label= pool.question

@@ -5,6 +5,13 @@ var Pool = exports.Pool = require('./model');
 app.set('views', __dirname);
 app.locals.prefix = 'pool';
 
+app.get('/', function(req, res) {
+  Pool.find(function(err, pools) {
+    if (err) { return res.json(err); }
+    res.render('all', { pools: pools });
+  });
+});
+
 app.get('/:id', function(req, res) {
   Pool.findById(req.params.id, function(err, pool) {
     if (err) { return res.json(err); }
