@@ -1,4 +1,5 @@
 var express = require('express'),
+    mongoose = require('mongoose'),
     app = express();
 
 app.set('port', process.env.PORT || 3000);
@@ -15,7 +16,11 @@ app.use(express.session({
   secret: 'your secret here'
 }));
 
+mongoose.connect(process.env.MONGO_URL);
+console.log('Mongoose connected to ' + process.env.MONGO_URL);
+
 app.use(require('root'));
 app.use('/pool', require('pool'));
 
 app.listen(app.get('port'));
+console.log('App start listening on port ' + app.get('port'));
