@@ -1,0 +1,15 @@
+extends ../views/layout
+
+block content
+  form(action="/#{prefix}", method="post").new-pool
+    .question
+      label Question
+      input(type="text", name="question")
+    .choice
+      label Choice 1
+      input(type="text", name="choices[0]")
+    .choice
+      label Choice 2
+      input(type="text", name="choices[1]")
+    .actions
+      input(type="submit")

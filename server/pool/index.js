@@ -12,6 +12,18 @@ app.get('/', function(req, res) {
   });
 });
 
+app.post('/', function(req, res) {
+  var pool = new Pool(req.body);
+  pool.save(function(err, pool) {
+    if (err) { return res.json(err); }
+    res.redirect(pool.id);
+  });
+});
+
+app.get('/new', function(req, res) {
+  res.render('new');
+});
+
 app.get('/:id', function(req, res) {
   Pool.findById(req.params.id, function(err, pool) {
     if (err) { return res.json(err); }
