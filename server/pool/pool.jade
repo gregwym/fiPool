@@ -9,3 +9,7 @@ block content
       for choice, i in choices
         li.choice
           a(href='/#{prefix}/#{id}/choose/#{i}')= choice
+    ul.votes
+      for vote, i in votes
+        li.vote
+          label.choice Chose #{vote.choice} @ #{vote.date}
