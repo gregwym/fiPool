@@ -32,5 +32,12 @@ app.get('/:id', function(req, res) {
 });
 
 app.get('/:id/choose/:choice', function(req, res) {
-  res.send('You chose Choice #' + req.params.choice + ' for pool #' + req.params.id);
+  Pool.findById(req.params.id, function(err, pool) {
+    if (err) { return res.json(err); }
+    pool.votes.push({ choice: pool.choices[req.params.choice] });
+    pool.save(function(err, pool) {
+      if (err) { return res.json(err); }
+      res.redirect(req.params.id);
+    });
+  });
 });
